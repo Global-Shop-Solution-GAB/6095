@@ -1,0 +1,423 @@
+﻿Program.Sub.ScreenSU.Start
+gui.FrmVendChg..create
+gui.FrmVendChg..caption("Purchase Order Vendor Change")
+gui.FrmVendChg..size(5160,3090)
+gui.FrmVendChg..minx(0)
+gui.FrmVendChg..miny(0)
+gui.FrmVendChg..position(0,0)
+gui.FrmVendChg..event(unload,Unload_Form)
+gui.FrmVendChg..alwaysontop(False)
+gui.FrmVendChg..fontname("Arial")
+gui.FrmVendChg..fontsize(8)
+gui.FrmVendChg..forecolor(0)
+gui.FrmVendChg..fontstyle(,,,,)
+gui.FrmVendChg..BackColor(-2147483633)
+gui.FrmVendChg..controlbox(True)
+gui.FrmVendChg..maxbutton(False)
+gui.FrmVendChg..minbutton(True)
+gui.FrmVendChg..mousepointer(0)
+gui.FrmVendChg..moveable(True)
+gui.FrmVendChg..sizeable(True)
+gui.FrmVendChg..ShowInTaskBar(True)
+gui.FrmVendChg..titlebar(True)
+gui.FrmVendChg.lblPO.create(label,"Enter Purchase Order:",True,1800,255,1,600,400,True,0,Arial,8,-2147483633,0)
+gui.FrmVendChg.lblPO.defaultvalue("")
+gui.FrmVendChg.lblPO.controlgroup(0)
+gui.FrmVendChg.lblOldVend.create(label,"Current Vendor:",True,1275,255,1,600,900,True,0,Arial,8,-2147483633,0)
+gui.FrmVendChg.lblOldVend.defaultvalue("")
+gui.FrmVendChg.lblOldVend.controlgroup(0)
+gui.FrmVendChg.txtPO.create(textbox,"",True,1250,300,0,2250,400,True,0,Arial,8,-2147483643,1)
+gui.FrmVendChg.txtPO.maxLength(7)
+gui.FrmVendChg.txtPO.event(lostfocus,txtPO_LostFocus)
+gui.FrmVendChg.txtPO.defaultvalue("")
+gui.FrmVendChg.txtPO.controlgroup(0)
+gui.FrmVendChg.txtOldVend.create(textbox,"",True,1250,300,0,2250,900,False,0,Arial,8,-2147483643,1)
+gui.FrmVendChg.txtOldVend.maxLength(6)
+gui.FrmVendChg.txtOldVend.defaultvalue("")
+gui.FrmVendChg.txtOldVend.controlgroup(0)
+gui.FrmVendChg.lblNewVend.create(label,"Select New Vendor:",True,1665,255,1,600,1400,True,0,Arial,8,-2147483633,0)
+gui.FrmVendChg.lblNewVend.defaultvalue("")
+gui.FrmVendChg.lblNewVend.controlgroup(0)
+gui.FrmVendChg.cmdUpdate.create(button)
+gui.FrmVendChg.cmdUpdate.caption("Update")
+gui.FrmVendChg.cmdUpdate.visible(True)
+gui.FrmVendChg.cmdUpdate.size(900,375)
+gui.FrmVendChg.cmdUpdate.zorder(0)
+gui.FrmVendChg.cmdUpdate.position(1300,1850)
+gui.FrmVendChg.cmdUpdate.enabled(True)
+gui.FrmVendChg.cmdUpdate.fontname("Arial")
+gui.FrmVendChg.cmdUpdate.fontsize(8)
+gui.FrmVendChg.cmdUpdate.event(click,cmdupdate_click)
+gui.FrmVendChg.cmdUpdate.defaultvalue("")
+gui.FrmVendChg.cmdUpdate.controlgroup(0)
+gui.FrmVendChg.cmdCancel.create(button)
+gui.FrmVendChg.cmdCancel.caption("Cancel")
+gui.FrmVendChg.cmdCancel.visible(True)
+gui.FrmVendChg.cmdCancel.size(900,375)
+gui.FrmVendChg.cmdCancel.zorder(0)
+gui.FrmVendChg.cmdCancel.position(2500,1850)
+gui.FrmVendChg.cmdCancel.enabled(True)
+gui.FrmVendChg.cmdCancel.fontname("Arial")
+gui.FrmVendChg.cmdCancel.fontsize(8)
+gui.FrmVendChg.cmdCancel.event(click,Unload_Form)
+gui.FrmVendChg.cmdCancel.defaultvalue("")
+gui.FrmVendChg.cmdCancel.controlgroup(0)
+gui.FrmVendChg.txtNewVend.create(textbox,"",True,1250,300,0,2250,1400,True,0,Arial,8,-2147483643,1)
+gui.FrmVendChg.txtNewVend.maxLength(6)
+gui.FrmVendChg.txtNewVend.event(lostfocus,txtNewVend_LostFocus)
+gui.FrmVendChg.txtNewVend.defaultvalue("")
+gui.FrmVendChg.txtNewVend.controlgroup(0)
+gui.FrmVendChg.cmdPOBrw.create(button)
+gui.FrmVendChg.cmdPOBrw.caption("^")
+gui.FrmVendChg.cmdPOBrw.visible(True)
+gui.FrmVendChg.cmdPOBrw.size(300,300)
+gui.FrmVendChg.cmdPOBrw.zorder(0)
+gui.FrmVendChg.cmdPOBrw.position(3550,400)
+gui.FrmVendChg.cmdPOBrw.enabled(True)
+gui.FrmVendChg.cmdPOBrw.fontname("Arial")
+gui.FrmVendChg.cmdPOBrw.fontsize(8)
+gui.FrmVendChg.cmdPOBrw.event(click,cmdpobrw_click)
+gui.FrmVendChg.cmdPOBrw.defaultvalue("")
+gui.FrmVendChg.cmdPOBrw.controlgroup(0)
+gui.FrmVendChg.cmdNewVend.create(button)
+gui.FrmVendChg.cmdNewVend.caption("^")
+gui.FrmVendChg.cmdNewVend.visible(True)
+gui.FrmVendChg.cmdNewVend.size(300,300)
+gui.FrmVendChg.cmdNewVend.zorder(0)
+gui.FrmVendChg.cmdNewVend.position(3550,1400)
+gui.FrmVendChg.cmdNewVend.enabled(True)
+gui.FrmVendChg.cmdNewVend.fontname("Arial")
+gui.FrmVendChg.cmdNewVend.fontsize(8)
+gui.FrmVendChg.cmdNewVend.event(click,cmdnewvend_click)
+gui.FrmVendChg.cmdNewVend.defaultvalue("")
+gui.FrmVendChg.cmdNewVend.controlgroup(0)
+gui.FrmVendChg.txtPO.tabstop(True)
+gui.FrmVendChg.txtPO.tabindex(1)
+gui.FrmVendChg.cmdPOBrw.tabstop(True)
+gui.FrmVendChg.cmdPOBrw.tabindex(2)
+gui.FrmVendChg.txtNewVend.tabstop(True)
+gui.FrmVendChg.txtNewVend.tabindex(3)
+gui.FrmVendChg.cmdNewVend.tabstop(True)
+gui.FrmVendChg.cmdNewVend.tabindex(4)
+gui.FrmVendChg.cmdUpdate.tabstop(True)
+gui.FrmVendChg.cmdUpdate.tabindex(5)
+gui.FrmVendChg.cmdCancel.tabstop(True)
+gui.FrmVendChg.cmdCancel.tabindex(6)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.sNewVendor.Declare(String)
+Variable.Global.sOldVendor.Declare(String)
+Variable.Global.sPO.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'This program will allow the user from a custom menu item to change the Vendor on a PO
+
+V.Local.sIcon.Declare(String)
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+'G Mansur 07/11/2023: Changed the location to the ART directory and added the file on the GAP
+F.Intrinsic.String.Build("{0}\ART\gss.ico",V.Caller.GlobalDir,V.Local.sIcon)
+'F.Intrinsic.String.Build("{0}\gss.ico",V.Caller.InstallDir,V.Local.sIcon)
+'===
+Gui.FrmVendChg..Icon(V.Local.sIcon)
+Gui.FrmVendChg..Show
+Gui.FrmVendChg.txtPO.SetFocus
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+'Update another PO or close the program
+
+V.Local.sMsg.Declare(String)
+V.Local.iRet.Declare(Long)
+
+F.Intrinsic.String.Build("PO Update is complete.{0}{0}Do you want to update another PO?",V.Ambient.NewLine,V.Local.sMsg)
+F.Intrinsic.UI.Msgbox(V.Local.sMsg,"PO Vendor Change",4,V.Local.iRet)
+F.Intrinsic.Control.If(V.Local.iRet,=,6)
+	Gui.FrmVendChg.txtPO.Text("")
+	Gui.FrmVendChg.txtPO.SetFocus
+	Gui.FrmVendChg.txtOldVend.Text("")
+	Gui.FrmVendChg.txtNewVend.Text("")
+	Gui.FrmVendChg..Show
+F.Intrinsic.Control.Else
+	F.ODBC.Connection!con.Close
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndIf
+
+Program.Sub.Unload.End
+
+Program.Sub.Unload_Form.Start
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+Program.Sub.Unload_Form.End
+
+Program.Sub.Hist_Po_Line.Start
+'Add a new record for the Vendor Change to HIST_PO_LINE
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sDateChg.Declare(String)
+V.Local.sTime.Declare(String)
+V.Local.sPOLine.Declare(String)
+V.Local.iCnt.Declare(Long)
+
+'Set Todays Date
+F.Intrinsic.String.Format(V.Ambient.Date,"YYYYMMDD",V.Local.sDateChg)
+
+'Set Todays Time
+F.Intrinsic.String.Format(V.Ambient.Time,"HhNnSs",V.Local.sTime)
+F.Intrinsic.String.Build("{0}00",V.Local.sTime,V.Local.sTime)
+
+F.Intrinsic.UI.ChangeWaitStatus("Updating Vendor on PO....",90)
+
+F.Intrinsic.String.Build("SELECT DISTINCT PO, PO_LINE FROM HIST_PO_LINE WHERE PO = '{0}';",V.Global.sPO,V.Local.sSQL)
+F.ODBC.Connection!con.OpenRecordsetRO("rstPOLine",V.Local.sSQL)
+	F.Intrinsic.Control.DoUntil(V.ODBC.con!rstPOLine.EOF,=,True)
+	V.Local.sPOLine.Set(V.ODBC.con!rstPOLine.FieldVal!PO_LINE)
+		F.Intrinsic.String.Build("SELECT * FROM HIST_PO_LINE WHERE PO = '{0}';",V.Global.sPO,V.Local.sSQL)
+		F.ODBC.Connection!con.OpenRecordsetRW("rstVendChg",V.Local.sSQL)
+			F.ODBC.con!rstVendChg.AddNew
+				F.ODBC.con!rstVendChg.Set!PO(V.Global.sPO)
+				F.ODBC.con!rstVendChg.Set!PO_LINE(V.Local.sPOLine)
+				F.ODBC.con!rstVendChg.Set!DATE_CHG(V.Local.sDateChg)
+				F.ODBC.con!rstVendChg.Set!TIME_CHG(V.Local.sTime)
+				F.ODBC.con!rstVendChg.Set!PROGRAM(V.Global.sOldVendor)
+				F.ODBC.con!rstVendChg.Set!USER1("CHGVEND")
+			F.ODBC.con!rstVendChg.Update
+		F.ODBC.con!rstVendChg.Close
+	F.ODBC.con!rstPOLine.MoveNext
+	F.Intrinsic.Control.Loop
+F.ODBC.con!rstPOLine.Close
+
+F.Intrinsic.UI.ChangeWaitStatus("Updating Vendor on PO....",100)
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Control.CallSub(Unload)
+
+Program.Sub.Hist_Po_Line.End
+
+Program.Sub.UpdatePOTbls.Start
+'Update PO Tables
+
+V.Local.sSQL.Declare(String)
+
+'PO_HEADER
+F.Intrinsic.UI.ChangeWaitStatus("Updating Vendor on PO....",30)
+	F.Intrinsic.String.Build("UPDATE PO_HEADER SET VENDOR = '{0}',SHIP_VIA = '{1}',TERMS = '{2}',GL_ACCOUNT = (SELECT V_VENDOR_MASTER.NORMAL_GL_ACCOUNT FROM V_VENDOR_MASTER WHERE VENDOR = '{0}'),",V.Global.sNewVendor,V.Args.ShipVia,V.Args.Terms,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} BUYER = (SELECT V_VENDOR_MASTER.BUYER FROM V_VENDOR_MASTER WHERE VENDOR = '{1}')WHERE PURCHASE_ORDER = '{2}' AND LTRIM(RECORD_NO) = 'A';",V.Local.sSQL,V.Global.sNewVendor,V.Global.sPO,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'PO_VENDOR_BUY
+F.Intrinsic.UI.ChangeWaitStatus("Updating Vendor on PO....",40)
+	F.Intrinsic.String.Build("UPDATE PO_VENDOR_BUY SET NAME_VENDOR = (SELECT V_VENDOR_MASTER.NAME_VENDOR FROM V_VENDOR_MASTER WHERE VENDOR = '{0}'),",V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_1 = (SELECT V_VENDOR_MASTER.ADDRESS1 FROM V_VENDOR_MASTER WHERE VENDOR = '{1}'),",V.Local.sSQL,V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_2 = (SELECT V_VENDOR_MASTER.ADDRESS2 FROM V_VENDOR_MASTER WHERE VENDOR = '{1}'),",V.Local.sSQL,V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_3 = (SELECT V_VENDOR_INTL.ADDRESS3 FROM V_VENDOR_INTL WHERE VENDOR = '{1}'),",V.Local.sSQL,V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_4 = (SELECT V_VENDOR_INTL.ADDRESS4 FROM V_VENDOR_INTL WHERE VENDOR = '{1}'),",V.Local.sSQL,V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_5 = (SELECT V_VENDOR_INTL.ADDRESS5 FROM V_VENDOR_INTL WHERE VENDOR = '{1}'),",V.Local.sSQL,V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CITY = (SELECT V_VENDOR_MASTER.CITY FROM V_VENDOR_MASTER WHERE VENDOR = '{1}'),",V.Local.sSQL,V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} STATE = (SELECT V_VENDOR_MASTER.STATE FROM V_VENDOR_MASTER WHERE VENDOR = '{1}'),",V.Local.sSQL,V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ZIP = (SELECT V_VENDOR_MASTER.CODE_ZIP FROM V_VENDOR_MASTER WHERE VENDOR = '{1}'),",V.Local.sSQL,V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} COUNTRY = (SELECT V_VENDOR_MASTER.COUNTRY FROM V_VENDOR_MASTER WHERE VENDOR = '{1}'),",V.Local.sSQL,V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ATTENTION = (SELECT V_VENDOR_MASTER.ATTENTION FROM V_VENDOR_MASTER WHERE VENDOR = '{1}'),",V.Local.sSQL,V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} VENDOR = '{1}',CONTACT_NAME = '',CONTACT_EMAIL = (SELECT V_VENDOR_ADDL.EMAIL FROM V_VENDOR_ADDL WHERE VENDOR = '{1}'),",V.Local.sSQL,V.Global.sNewVendor,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CONTACT_PHONE = '' WHERE PURCHASE_ORDER = '{1}' AND LTRIM(RECORD_NO) = 'B';",V.Local.sSQL,V.Global.sPO,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'PO_PAY_TO
+F.Intrinsic.UI.ChangeWaitStatus("Updating Vendor on PO....",50)
+	F.Intrinsic.String.Build("UPDATE PO_PAY_TO SET VENDOR = '{0}' WHERE PURCHASE_ORDER = '{1}' AND LTRIM(RECORD_NO) = 'C';",V.Global.sNewVendor,V.Global.sPO,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'PO_LINES
+F.Intrinsic.UI.ChangeWaitStatus("Updating Vendor on PO....",60)
+	F.Intrinsic.String.Build("UPDATE PO_LINES SET VENDOR = '{0}' WHERE PURCHASE_ORDER = '{1}' AND RECORD_NO > '0000';",V.Global.sNewVendor,V.Global.sPO,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'PO_HISTORY
+F.Intrinsic.UI.ChangeWaitStatus("Updating Vendor on PO....",70)
+	F.Intrinsic.String.Build("UPDATE PO_HISTORY SET VENDOR = '{0}' WHERE PURCHASE_ORDER = '{1}';",V.Global.sNewVendor,V.Global.sPO,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'HIST_PO_LINE
+F.Intrinsic.UI.ChangeWaitStatus("Updating Vendor on PO....",80)
+	F.Intrinsic.Control.CallSub(Hist_po_line)
+
+Program.Sub.UpdatePOTbls.End
+
+Program.Sub.cmdNewVend_click.Start
+'Browser to select the new vendor
+
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(Long)
+V.Local.iAlign.Declare(Long)
+V.Local.sFormat.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.String.Split("Vendor*!*Vendor Name*!*Address*!*City*!*State*!*Zip","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("800*!*2700*!*2500*!*1500*!*500*!*900","*!*",V.Local.iWidths)
+F.Intrinsic.String.Split("0*!*0*!*0*!*0*!*3*!*0","*!*",V.Local.iAlign)
+F.Intrinsic.String.Split("*!**!**!**!**!*","*!*",V.Local.sFormat)
+
+V.Local.sSQL.Set("SELECT VENDOR,NAME_VENDOR,ADDRESS1,CITY,STATE,CODE_ZIP FROM V_VENDOR_MASTER WHERE VENDOR <> '' ORDER BY VENDOR;")
+F.Intrinsic.UI.Browser("Select a Vendor:","con",V.Local.sSQL,V.Local.sTitles,V.Local.iWidths,10000,8000,V.Local.sFormat,V.Local.iAlign,V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,=,"***CANCEL***")
+'	F.Intrinsic.UI.Msgbox("No Vendor Selected.","Vendor Browser")
+F.Intrinsic.Control.Else
+	V.Global.sNewVendor.Set(V.Local.sRet(0))
+	Gui.FrmVendChg.txtNewVend.Text(V.Global.sNewVendor)
+F.Intrinsic.Control.EndIf
+
+Program.Sub.cmdNewVend_click.End
+
+Program.Sub.cmdPOBrw_click.Start
+'Browser to select the PO to update
+
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(Long)
+V.Local.iAlign.Declare(Long)
+V.Local.sFormat.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.String.Split("PO Number*!*Vendor*!*Vendor Name*!*Type*!*Address*!*City*!*State*!*Zip","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("1000*!*800*!*2700*!*700*!*2500*!*1500*!*500*!*900","*!*",V.Local.iWidths)
+F.Intrinsic.String.Split("3*!*3*!*0*!*3*!*0*!*0*!*3*!*0","*!*",V.Local.iAlign)
+F.Intrinsic.String.Split("*!**!**!**!**!**!**!*","*!*",V.Local.sFormat)
+
+V.Local.sSQL.Set("SELECT V_PO_VENDOR_BUY.PURCHASE_ORDER,V_PO_VENDOR_BUY.VENDOR,V_PO_VENDOR_BUY.NAME_VENDOR,IF (PO_HEADER.TYPE = '1', 'Blanket', 'Normal'),V_PO_VENDOR_BUY.ADDRESS_1,V_PO_VENDOR_BUY.CITY,V_PO_VENDOR_BUY.STATE,V_PO_VENDOR_BUY.ZIP FROM V_PO_VENDOR_BUY LEFT OUTER JOIN PO_HEADER ON V_PO_VENDOR_BUY.PURCHASE_ORDER = PO_HEADER.PURCHASE_ORDER AND PO_HEADER.RECORD_NO = '  A ' ORDER BY V_PO_VENDOR_BUY.PURCHASE_ORDER;")
+F.Intrinsic.UI.Browser("Select a Purchase Order:","con",V.Local.sSQL,V.Local.sTitles,V.Local.iWidths,12000,8000,V.Local.sFormat,V.Local.iAlign,V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,=,"***CANCEL***")
+'	F.Intrinsic.UI.Msgbox("No Purchase Order Selected","PO Browser")
+F.Intrinsic.Control.Else
+	V.Global.sPO.Set(V.Local.sRet(0))
+	Gui.FrmVendChg.txtPO.Text(V.Global.sPO)
+	V.Global.sOldVendor.Set(V.Local.sRet(1))
+	Gui.FrmVendChg.txtOldVend.Text(V.Global.sOldVendor)
+F.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmdPOBrw_click.End
+
+Program.Sub.cmdUpdate_click.Start
+'Update the Vendor on the PO
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sMsg.Declare(String)
+V.Local.sTerms.Declare(String)
+V.Local.sShipVia.Declare(String)
+
+F.Intrinsic.Control.If(V.Global.sPO,=,"")
+	F.Intrinsic.UI.Msgbox("Please select a Purchase Order","Purchase Order Validation")
+	Gui.FrmVendChg.txtPO.SetFocus
+F.Intrinsic.Control.Elseif(V.Global.sPO,<>,"")
+	F.Intrinsic.Control.AndIf(V.Global.sNewVendor,=,"")
+		F.Intrinsic.UI.Msgbox("Please select a New Vendor","New Vendor Validation")
+		Gui.FrmVendChg.txtNewVend.SetFocus
+F.Intrinsic.Control.ElseIf(V.Global.sOldVendor,=,V.Global.sNewVendor)
+	F.Intrinsic.UI.Msgbox("Vendors are the same. No Update.","Validate Vendors")
+	Gui.FrmVendChg.txtNewVend.Text("")
+	Gui.FrmVendChg.txtNewVend.SetFocus
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("SELECT LOCK_TYPE,USER_ID FROM X_LOCK_FILE WHERE COMPANY = '{0}' AND LOCK_TYPE = 'PO' AND REC_KEY = '{1}';",V.Caller.CompanyCode,V.Global.sPO,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet(0),<>,"")
+			F.Intrinsic.String.Build("PO {0} is locked by User ID {1}.",V.Global.sPO,V.Local.sRet(1),V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"PO Locked")
+			Gui.FrmVendChg.txtPO.SetFocus
+		F.Intrinsic.Control.Else
+			Gui.FrmVendChg..Visible(0)
+			F.Intrinsic.UI.InvokeWaitDialog("Updating Vendor on PO....","PO Update")
+'			Get Terms and Ship Via Data for update
+			'SHIP_VIA-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			F.Intrinsic.UI.ChangeWaitStatus("Updating Vendor on PO....",10)
+			F.Intrinsic.String.Build("SELECT SHIP_VIA FROM V_VENDOR_PAY_TO WHERE VENDOR = '{0}';",V.Global.sNewVendor,V.Local.sSQL)
+			F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,"")
+				V.Local.sShipVia.Set("")
+			F.Intrinsic.Control.Else
+				V.Local.sShipVia.Set(V.Local.sRet)
+				F.Intrinsic.String.Build("SELECT SHIP_VIA FROM V_AP_SHIP_VIA WHERE SHIP_VIA_CODE = '{0}';",V.Local.sShipVia,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+				V.Local.sShipVia.Set(V.Local.sRet)
+			F.Intrinsic.Control.EndIf
+			'TERMS-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			F.Intrinsic.String.Build("SELECT PAYMENT_TERMS FROM V_VENDOR_PAY_TO WHERE VENDOR = '{0}';",V.Global.sNewVendor,V.Local.sSQL)
+			F.Intrinsic.UI.ChangeWaitStatus("Updating Vendor on PO....",20)
+			F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,"")
+				V.Local.sTerms.Set("")
+			F.Intrinsic.Control.Else
+				V.Local.sTerms.Set(V.Local.sRet)
+				F.Intrinsic.String.Build("SELECT TERMS_MESSAGE FROM V_AP_TERMS WHERE TERMS_CODE = '{0}';",V.Local.sTerms,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+				V.Local.sTerms.Set(V.Local.sRet)
+				F.Intrinsic.Control.CallSub(Updatepotbls,"ShipVia",V.Local.sShipVia,"Terms",V.Local.sTerms)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmdUpdate_click.End
+
+Program.Sub.txtNewVend_LostFocus.Start
+'Validate the Vendor selected
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+V.Global.sNewVendor.Set(V.Screen.FrmVendChg!txtNewVend.Text)
+
+F.Intrinsic.Control.If(V.Global.sNewVendor,<>,"")
+	F.Intrinsic.String.Build("SELECT VENDOR FROM V_VENDOR_MASTER WHERE VENDOR = '{0}';",V.Global.sNewVendor,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+
+	F.Intrinsic.Control.If(V.Local.sRet,=,"")
+		F.Intrinsic.UI.Msgbox("The Vendor entered is invalid","Vendor Validation")
+		Gui.FrmVendChg.txtNewVend.Text("")
+		Gui.FrmVendChg.txtNewVend.SetFocus
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+Program.Sub.txtNewVend_LostFocus.End
+
+Program.Sub.txtPO_LostFocus.Start
+'Validate the PO entered is an active PO
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+V.Global.sPO.Set(V.Screen.FrmVendChg!txtPO.Text)
+
+F.Intrinsic.Control.If(V.Global.sPO,<>,"")
+	F.Intrinsic.String.Build("SELECT PURCHASE_ORDER,VENDOR FROM V_PO_HEADER WHERE PURCHASE_ORDER = '{0}';",V.Global.sPO,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+	F.Intrinsic.Control.If(V.Local.sRet(0),=,"")
+		F.Intrinsic.UI.Msgbox("The PO entered is invalid","PO Validation")
+		Gui.FrmVendChg.txtPO.Text("")
+		Gui.FrmVendChg.txtOldVend.Text("")
+		Gui.FrmVendChg.txtPO.SetFocus
+	F.Intrinsic.Control.Else
+		V.Global.sOldVendor.Set(V.Local.sRet(1))
+		Gui.FrmVendChg.txtOldVend.Text(V.Global.sOldVendor)
+		Gui.FrmVendChg.txtPO.Text(V.Global.sPO)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+Program.Sub.txtPO_LostFocus.End
+
+Program.Sub.Comments.Start
+${$0$}$GAB_PO_VendorChange$}$SUPERVSR$}$03/12/2015
+Program.Sub.Comments.End
+
